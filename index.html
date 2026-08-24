@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="LAURAI / Bounce Signal — AI-powered email delivery mission control."
+  />
+
+  <title>LAURAI / BOUNCE SIGNAL — Mission Control</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to mission control</a>
+
+  <div class="space" aria-hidden="true">
+    <div class="space-grid"></div>
+    <div class="nebula nebula-a"></div>
+    <div class="nebula nebula-b"></div>
+
+    <div class="stars">
+      <i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i>
+      <i></i><i></i><i></i><i></i><i></i>
+    </div>
+  </div>
+
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="LaurAI Bounce Signal">
+        <span class="brand-orb"></span>
+
+        <span>
+          <strong>LAURAI</strong>
+          <small>/ BOUNCE SIGNAL</small>
+        </span>
+      </a>
+
+      <nav class="top-actions" aria-label="Quick controls">
+        <button class="icon-btn" id="commandButton" title="Command palette">
+          ⌘K
+        </button>
+
+        <button class="icon-btn" id="languageButton">
+          EN
+        </button>
+
+        <button class="icon-btn" id="soundButton" aria-pressed="true">
+          ♪
+        </button>
+
+        <button class="icon-btn" id="settingsButton">
+          ⚙
+        </button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="chapter">
+          <span>CHAPTER 03</span>
+          <span class="chapter-line"></span>
+          <span data-i18n="sequence">EMAIL TRANSMISSION</span>
+        </div>
+
+        <h1>
+          <span data-i18n="hero1">The message bounced.</span>
+          <em data-i18n="hero2">LaurAI found another route.</em>
+        </h1>
+
+        <p data-i18n="heroCopy">
+          Scan the failure, repair the route and guide the signal back into the inbox.
+        </p>
+
+        <div class="hero-stats">
+          <div>
+            <small data-i18n="network">NETWORK</small>
+            <strong><i class="online-dot"></i> ONLINE</strong>
+          </div>
+
+          <div>
+            <small data-i18n="mission">MISSION</small>
+            <strong id="missionId">LAI-0824-0001</strong>
+          </div>
+
+          <div>
+            <small data-i18n="level">LEVEL</small>
+            <strong id="levelDisplay">01</strong>
+          </div>
+
+          <div>
+            <small>XP</small>
+            <strong id="xpDisplay">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="mission-layout">
+        <!-- LEFT -->
+        <aside class="side-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="kicker">01</span>
+              <h2 data-i18n="scenario">Scenario</h2>
+            </div>
+
+            <button class="tiny-btn" id="randomScenario">
+              ↻
+            </button>
+          </div>
+
+          <div class="scenario-list" id="scenarioList"></div>
+
+          <div class="panel-heading spaced">
+            <div>
+              <span class="kicker">02</span>
+              <h2 data-i18n="difficulty">Difficulty</h2>
+            </div>
+          </div>
+
+          <div class="segmented" id="difficultyControl">
+            <button data-difficulty="easy">Easy</button>
+            <button class="active" data-difficulty="normal">Normal</button>
+            <button data-difficulty="critical">Critical</button>
+          </div>
+
+          <div class="panel-heading spaced">
+            <div>
+              <span class="kicker">03</span>
+              <h2 data-i18n="channel">Fallback channel</h2>
+            </div>
+          </div>
+
+          <div class="channel-grid">
+            <button class="channel active" data-channel="email">
+              <span>✉</span>
+              EMAIL
+            </button>
+
+            <button class="channel" data-channel="sms">
+              <span>▤</span>
+              SMS
+            </button>
+
+            <button class="channel" data-channel="push">
+              <span>◉</span>
+              PUSH
+            </button>
+
+            <button class="channel" data-channel="auto">
+              <span>✦</span>
+              AUTO
+            </button>
+          </div>
+        </aside>
+
+        <!-- CENTER -->
+        <section class="mission-center">
+          <div class="mission-card">
+            <div class="mission-card-head">
+              <div>
+                <span class="kicker">LIVE SIGNAL</span>
+                <h2 id="scenarioTitle">Soft Bounce</h2>
+              </div>
+
+              <div class="signal-quality">
+                <span data-i18n="signal">SIGNAL</span>
+                <strong id="signalValue">84%</strong>
+              </div>
+            </div>
+
+            <div class="signal-stage" id="signalStage">
+              <div class="radar" aria-hidden="true">
+                <div class="radar-circle radar-circle-1"></div>
+                <div class="radar-circle radar-circle-2"></div>
+                <div class="radar-circle radar-circle-3"></div>
+                <div class="radar-cross x"></div>
+                <div class="radar-cross y"></div>
+                <div class="radar-sweep"></div>
+              </div>
+
+              <div class="orbit orbit-a">
+                <span class="orbit-node n1"></span>
+                <span class="orbit-node n2"></span>
+              </div>
+
+              <div class="orbit orbit-b">
+                <span class="mini-packet">01</span>
+              </div>
+
+              <div class="route route-left">
+                <span></span>
+              </div>
+
+              <div class="route route-right">
+                <span></span>
+              </div>
+
+              <div class="network-node sender">
+                <span class="node-icon">S</span>
+                <small>SENDER</small>
+              </div>
+
+              <div class="network-node receiver">
+                <span class="node-icon">R</span>
+                <small>INBOX</small>
+              </div>
+
+              <button
+                class="email-packet"
+                id="emailPacket"
+                aria-label="Bounce email packet"
+              >
+                <span class="packet-shell">
+                  <span class="packet-header">
+                    <i></i>
+                    <b id="packetId">MSG-0001</b>
+                  </span>
+
+                  <span class="envelope">
+                    <span class="envelope-back"></span>
+                    <span class="envelope-left"></span>
+                    <span class="envelope-right"></span>
+                    <span class="envelope-flap"></span>
+                    <strong>✦</strong>
+                  </span>
+
+                  <span class="packet-caption">SIGNAL PACKET</span>
+                </span>
+
+                <span class="packet-shadow"></span>
+              </button>
+
+              <div class="impact-ring"></div>
+
+              <div class="scanner" id="scanner">
+                <div></div>
+              </div>
+
+              <div class="pulse-wave" id="pulseWave"></div>
+
+              <div class="storm-field" id="stormField" aria-hidden="true"></div>
+            </div>
+
+            <div class="state-panel">
+              <div class="state-head">
+                <div>
+                  <small data-i18n="currentState">CURRENT STATE</small>
+                  <strong id="statusText">READY</strong>
+                </div>
+
+                <div class="status-code">
+                  <small>CODE</small>
+                  <strong id="statusCode">000</strong>
+                </div>
+              </div>
+
+              <div class="progress-track">
+                <div id="progressBar"></div>
+              </div>
+
+              <div class="timeline" id="timeline">
+                <button data-step="0">
+                  <span>01</span>
+                  <b>Bounce</b>
+                </button>
+
+                <button data-step="1">
+                  <span>02</span>
+                  <b>Scan</b>
+                </button>
+
+                <button data-step="2">
+                  <span>03</span>
+                  <b>Repair</b>
+                </button>
+
+                <button data-step="3">
+                  <span>04</span>
+                  <b>Route</b>
+                </button>
+
+                <button data-step="4">
+                  <span>05</span>
+                  <b>Deliver</b>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mission-actions">
+            <button class="primary-action" id="startButton">
+              <span>▶</span>
+              <span data-i18n="startMission">START MISSION</span>
+            </button>
+
+            <button class="secondary-action" id="pauseButton">
+              II
+              <span data-i18n="pause">PAUSE</span>
+            </button>
+
+            <button class="secondary-action" id="stepButton">
+              →
+              <span>STEP</span>
+            </button>
+
+            <button class="secondary-action" id="pulseButton">
+              ✦
+              <span>PULSE</span>
+            </button>
+          </div>
+
+          <div class="speed-row">
+            <span>SPEED</span>
+
+            <button data-speed=".5">0.5×</button>
+            <button class="active" data-speed="1">1×</button>
+            <button data-speed="2">2×</button>
+          </div>
+        </section>
+
+        <!-- RIGHT -->
+        <aside class="side-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="kicker">LAURAI CORE</span>
+              <h2 data-i18n="analysis">AI Analysis</h2>
+            </div>
+
+            <span class="ai-orb">✦</span>
+          </div>
+
+          <div class="ai-card">
+            <div class="ai-confidence">
+              <div>
+                <small data-i18n="confidence">CONFIDENCE</small>
+                <strong id="confidenceValue">92%</strong>
+              </div>
+
+              <div class="confidence-ring">
+                <span id="confidenceRing">92</span>
+              </div>
+            </div>
+
+            <p id="aiAnalysis">
+              Awaiting transmission data.
+            </p>
+
+            <div class="recommendation">
+              <small data-i18n="recommended">RECOMMENDED ACTION</small>
+              <strong id="aiRecommendation">Run signal scan</strong>
+            </div>
+          </div>
+
+          <div class="panel-heading spaced">
+            <div>
+              <span class="kicker">TELEMETRY</span>
+              <h2 data-i18n="metrics">Metrics</h2>
+            </div>
+          </div>
+
+          <div class="telemetry">
+            <div>
+              <span>Bounces</span>
+              <strong id="bounceMetric">0</strong>
+            </div>
+
+            <div>
+              <span>Latency</span>
+              <strong id="latencyMetric">—</strong>
+            </div>
+
+            <div>
+              <span>Retry</span>
+              <strong id="retryMetric">0/3</strong>
+            </div>
+
+            <div>
+              <span>Health</span>
+              <strong id="healthMetric">100%</strong>
+            </div>
+
+            <div>
+              <span>Trust</span>
+              <strong id="trustMetric">A+</strong>
+            </div>
+
+            <div>
+              <span>Risk</span>
+              <strong id="riskMetric">LOW</strong>
+            </div>
+          </div>
+
+          <div class="verification">
+            <div>
+              <span>SPF</span>
+              <b class="pass">PASS</b>
+            </div>
+
+            <div>
+              <span>DKIM</span>
+              <b class="pass">PASS</b>
+            </div>
+
+            <div>
+              <span>DMARC</span>
+              <b class="pass">PASS</b>
+            </div>
+
+            <div>
+              <span>MX</span>
+              <b class="pass" id="mxState">READY</b>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- COMMAND CENTER -->
+      <section class="command-center">
+        <div class="section-title">
+          <div>
+            <span class="kicker">MISSION CONTROL</span>
+            <h2 data-i18n="commandCenter">Command Center</h2>
+          </div>
+
+          <div class="command-tabs">
+            <button class="active" data-tab="console">Console</button>
+            <button data-tab="history">History</button>
+            <button data-tab="achievements">Achievements</button>
+            <button data-tab="journey">Journey</button>
+          </div>
+        </div>
+
+        <div class="tab-panel active" id="tab-console">
+          <div class="terminal">
+            <div class="terminal-bar">
+              <div>
+                <i></i><i></i><i></i>
+              </div>
+
+              <span>laurai://mission-control/signal.log</span>
+
+              <button id="clearLog">CLEAR</button>
+            </div>
+
+            <div class="terminal-output" id="terminalOutput">
+              <p>
+                <time>20:24:00</time>
+                <span class="info">system</span>
+                LaurAI Mission Control initialized.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-history">
+          <div class="history-toolbar">
+            <div>
+              <strong data-i18n="history">Transmission History</strong>
+              <small id="historyCount">0 missions</small>
+            </div>
+
+            <div>
+              <button id="exportJson">EXPORT JSON</button>
+              <button id="exportTxt">EXPORT TXT</button>
+              <button id="copyReport">COPY REPORT</button>
+              <button id="clearHistory">CLEAR</button>
+            </div>
+          </div>
+
+          <div class="history-list" id="historyList">
+            <div class="empty-state">
+              No completed missions yet.
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-achievements">
+          <div class="profile-strip">
+            <div>
+              <small>OPERATOR</small>
+              <strong>LAURAI SIGNAL PILOT</strong>
+            </div>
+
+            <div class="xp-progress">
+              <div>
+                <span id="profileLevel">LEVEL 1</span>
+                <span id="profileXp">0 / 200 XP</span>
+              </div>
+
+              <div class="xp-track">
+                <i id="xpBar"></i>
+              </div>
+            </div>
+
+            <div>
+              <small>STREAK</small>
+              <strong id="streakDisplay">0 🔥</strong>
+            </div>
+          </div>
+
+          <div class="badge-grid" id="badgeGrid"></div>
+        </div>
+
+        <div class="tab-panel" id="tab-journey">
+          <div class="journey-builder">
+            <div class="journey-node complete">
+              <span>01</span>
+              <strong>Email Alerts</strong>
+              <small>Detection</small>
+            </div>
+
+            <div class="journey-link complete"></div>
+
+            <div class="journey-node complete">
+              <span>02</span>
+              <strong>Signal Orbit</strong>
+              <small>Network</small>
+            </div>
+
+            <div class="journey-link active"></div>
+
+            <div class="journey-node active">
+              <span>03</span>
+              <strong>Bounce Signal</strong>
+              <small>Recovery</small>
+            </div>
+
+            <div class="journey-link"></div>
+
+            <div class="journey-node">
+              <span>04</span>
+              <strong>Dead Letter Orbit</strong>
+              <small>Quarantine</small>
+            </div>
+
+            <div class="journey-link"></div>
+
+            <div class="journey-node">
+              <span>05</span>
+              <strong>Quantum Delivery</strong>
+              <small>Multichannel</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="shortcut-hints">
+        <span><kbd>R</kbd> Retry</span>
+        <span><kbd>S</kbd> Scan</span>
+        <span><kbd>P</kbd> Pulse</span>
+        <span><kbd>Space</kbd> Pause</span>
+        <span><kbd>1–8</kbd> Scenario</span>
+        <span><kbd>⌘/Ctrl K</kbd> Commands</span>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong>LAURAI SIGNAL NETWORK</strong>
+        <small>EMAIL → ORBIT → RECOVERY → DELIVERY</small>
+      </div>
+
+      <div>
+        <span id="footerStatus">SYSTEM READY</span>
+        <span>v3.0.0</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- SETTINGS -->
+  <div class="overlay" id="settingsOverlay">
+    <section class="modal settings-modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <div>
+          <small>SYSTEM</small>
+          <h2>Settings</h2>
+        </div>
+
+        <button class="close-modal">×</button>
+      </div>
+
+      <div class="settings-grid">
+        <div class="setting">
+          <div>
+            <strong>Theme</strong>
+            <small>Change Mission Control appearance.</small>
+          </div>
+
+          <select id="themeSelect">
+            <option value="dark">Dark Space</option>
+            <option value="light">Light Mission</option>
+            <option value="cyber">Cyber Neon</option>
+            <option value="retro">Retro NASA</option>
+          </select>
+        </div>
+
+        <div class="setting">
+          <div>
+            <strong>Reduced motion</strong>
+            <small>Reduce orbital and bounce animation.</small>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" id="motionToggle" />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="setting">
+          <div>
+            <strong>High contrast</strong>
+            <small>Increase interface contrast.</small>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" id="contrastToggle" />
+            <span></span>
+          </label>
+        </div>
+
+        <div class="setting">
+          <div>
+            <strong>Sound</strong>
+            <small>Signal feedback tones.</small>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" id="settingsSoundToggle" checked />
+            <span></span>
+          </label>
+        </div>
+      </div>
+
+      <button class="danger-btn" id="resetApp">
+        RESET ALL LOCAL DATA
+      </button>
+    </section>
+  </div>
+
+  <!-- COMMAND PALETTE -->
+  <div class="overlay" id="commandOverlay">
+    <section class="modal command-modal" role="dialog" aria-modal="true">
+      <div class="command-search">
+        <span>⌘</span>
+        <input
+          id="commandSearch"
+          type="search"
+          placeholder="Search commands..."
+          autocomplete="off"
+        />
+        <kbd>ESC</kbd>
+      </div>
+
+      <div id="commandList" class="command-list"></div>
+    </section>
+  </div>
+
+  <!-- RESULT -->
+  <div class="overlay" id="resultOverlay">
+    <section class="modal result-modal">
+      <button class="close-modal result-close">×</button>
+
+      <div class="result-orbit">
+        <span>✓</span>
+      </div>
+
+      <small>MISSION COMPLETE</small>
+
+      <h2 id="resultTitle">
+        Signal delivered
+      </h2>
+
+      <p id="resultDescription">
+        LaurAI recovered the transmission successfully.
+      </p>
+
+      <div class="result-score">
+        <div>
+          <small>SCORE</small>
+          <strong id="resultScore">0</strong>
+        </div>
+
+        <div>
+          <small>XP</small>
+          <strong id="resultXp">+0</strong>
+        </div>
+
+        <div>
+          <small>TIME</small>
+          <strong id="resultTime">0.0s</strong>
+        </div>
+      </div>
+
+      <button class="primary-action result-close">
+        RETURN TO MISSION CONTROL
+      </button>
+    </section>
+  </div>
+
+  <div
+    class="toast-region"
+    id="toastRegion"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
