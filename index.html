@@ -8,6 +8,7 @@
     name="description"
     content="LAURAI / Bounce Signal — AI-powered email delivery mission control."
   />
+  <meta name="theme-color" content="#070b1c" />
 
   <title>LAURAI / BOUNCE SIGNAL — Mission Control</title>
   <link rel="stylesheet" href="./style.css" />
@@ -40,19 +41,19 @@
       </a>
 
       <nav class="top-actions" aria-label="Quick controls">
-        <button class="icon-btn" id="commandButton" title="Command palette">
+        <button class="icon-btn" id="commandButton" title="Command palette" aria-label="Open command palette">
           ⌘K
         </button>
 
-        <button class="icon-btn" id="languageButton">
+        <button class="icon-btn" id="languageButton" aria-label="Change language">
           EN
         </button>
 
-        <button class="icon-btn" id="soundButton" aria-pressed="true">
+        <button class="icon-btn" id="soundButton" aria-label="Toggle sound" aria-pressed="true">
           ♪
         </button>
 
-        <button class="icon-btn" id="settingsButton">
+        <button class="icon-btn" id="settingsButton" aria-label="Open settings">
           ⚙
         </button>
       </nav>
@@ -107,7 +108,7 @@
               <h2 data-i18n="scenario">Scenario</h2>
             </div>
 
-            <button class="tiny-btn" id="randomScenario">
+            <button class="tiny-btn" id="randomScenario" aria-label="Choose a random scenario" title="Random scenario">
               ↻
             </button>
           </div>
@@ -249,7 +250,7 @@
               <div class="state-head">
                 <div>
                   <small data-i18n="currentState">CURRENT STATE</small>
-                  <strong id="statusText">READY</strong>
+                  <strong id="statusText" role="status" aria-live="polite">READY</strong>
                 </div>
 
                 <div class="status-code">
@@ -566,7 +567,7 @@
 
       <div>
         <span id="footerStatus">SYSTEM READY</span>
-        <span>v3.0.0</span>
+        <span>v3.1.0</span>
       </div>
     </footer>
   </div>
